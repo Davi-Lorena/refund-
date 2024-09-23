@@ -1,5 +1,8 @@
 // Selecionando elementos 
+const form = document.querySelector("form")
 const amount = document.getElementById("amount")
+const expense = document.getElementById("expense")
+const category = document.getElementById("category")
 
 // Validando o input e o formatando para somente receber números 
 amount.oninput = () => {
@@ -20,4 +23,8 @@ function formatCurrencyBRL(value) {
     })
 
     return value
+}
+
+form.onsubmit = (event) => {
+    event.preventDefault()
 }
