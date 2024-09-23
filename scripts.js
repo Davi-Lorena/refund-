@@ -5,8 +5,9 @@ const expense = document.getElementById("expense")
 const category = document.getElementById("category")
 
 
-// Selecionando a lista 
+// Selecionando elementos da lista 
 const expenseList = document.querySelector("ul") 
+const expensesQuantity = document.querySelector("aside header p span")
 
 // Validando o input e o formatando para somente receber números 
 amount.oninput = () => {
@@ -97,9 +98,26 @@ expenseItem.append(expenseIcon, expenseInfo, expenseAmount, removeIcon)
 // Adicionando o item na lista 
 expenseList.append(expenseItem)
 
+// atualiza os totais 
+uptadeTotals()
 
     } catch (error) {
         alert("Não foi possível lançar essa despesa.")
+        console.log(error)
+    }
+}
+
+// Atualizando os totais 
+function uptadeTotals(){
+    try {
+        // Recuperando os itens da lista 
+        const items = expenseList.children // Essa propriedade mostra quantos filhos nosso camarada tem 
+
+        // Atualiza a quantidade de itens da lista 
+        expensesQuantity.textContent = `${items.length} ${items.length > 1 ? "despesas" : "despesa"} `
+
+    } catch (error) {
+        alert("Não foi possível atualizar os totais")
         console.log(error)
     }
 }
