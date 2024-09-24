@@ -158,3 +158,21 @@ expensesTotal.append(symbolBRL, total)
         console.log(error)
     }
 }
+
+//Evento que captura o clique dos itens da lista 
+expenseList.addEventListener("click", function(event) {
+    //Verificando se o elemento clicado é o ícone de remoção
+    if(event.target.classList.contains("remove-icon")) // Acessa o clique diretamente no remove-icon por meio dessa classe  
+        {
+// Obtendo a li pai do elemento clicado 
+const item = event.target.closest(".expense") // O closest busca o pai mais próximo do elemento
+
+// Remove o item da lista 
+item.remove()
+    }
+    
+// atualizando os totais 
+uptadeTotals()
+
+})
+
