@@ -99,6 +99,9 @@ expenseItem.append(expenseIcon, expenseInfo, expenseAmount, removeIcon)
 // Adicionando o item na lista 
 expenseList.append(expenseItem)
 
+// Limpa o forms 
+formClear()
+
 // atualiza os totais 
 uptadeTotals()
 
@@ -176,3 +179,10 @@ uptadeTotals()
 
 })
 
+function formClear() {
+    expense.value = ""
+    category.value = ""
+    amount.value = ""
+
+    expense.focus()
+}
